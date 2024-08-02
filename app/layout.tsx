@@ -2,6 +2,13 @@ import Navbar from "@/components/navbar";
 import "./globals.css";
 // fonts
 import { Inter, Inconsolata } from "next/font/google";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Next.js Project",
+  description: "A Next.js project with TypeScript and TailwindCSS.",
+  keywords: "Next.js, Typescript, TailwindCSS",
+};
 
 const inter = Inter({ subsets: ["latin"] });
 const inconsolata = Inconsolata({ subsets: ["latin"] });
