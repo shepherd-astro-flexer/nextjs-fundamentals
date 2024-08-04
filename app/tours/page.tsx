@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const url = "https://www.course-api.com/react-tours-project";
 
 type Tour = {
@@ -24,8 +26,15 @@ async function ToursPage() {
   return (
     <div>
       <h1 className="my-4 text-2xl font-semibold">Tours</h1>
+
       {tours.map((tour) => {
-        return <h3 key={tour.id}>{tour.name}</h3>;
+        const { id, name } = tour;
+
+        return (
+          <Link key={id} href={`/tours/${id}`} className="hover:text-blue-300">
+            <h3>{name}</h3>
+          </Link>
+        );
       })}
     </div>
   );
