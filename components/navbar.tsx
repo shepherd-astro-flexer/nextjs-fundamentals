@@ -31,7 +31,7 @@ const navLinks: NavLink[] = [
 
 function Navbar() {
   return (
-    <nav className="max-w-3xl mx-auto py-4 flex gap-x-4">
+    <nav className="max-w-3xl m-auto flex gap-x-2">
       {navLinks.map((navLink) => {
         const { id, page, path } = navLink;
 

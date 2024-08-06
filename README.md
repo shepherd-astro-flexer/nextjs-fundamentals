@@ -206,7 +206,7 @@ Next.js has a Metadata API that can be used to define your application metadata 
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Next.js Project',
+   title: 'Next.js Project',
   description: 'A Next.js project with TypeScript and TailwindCSS.',
   keywords: 'Next.js, Typescript, TailwindCSS',
 };
