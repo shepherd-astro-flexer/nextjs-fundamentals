@@ -9,7 +9,7 @@ async function List() {
         const { firstName, lastName, id } = user;
 
         return (
-          <div key={id} className="flex">
+          <div key={id} className="flex justify-between mb-2">
             <p>
               {firstName} {lastName}
             </p>

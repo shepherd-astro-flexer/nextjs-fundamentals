@@ -10,12 +10,22 @@ type User = {
   lastName: string;
 };
 // Create new user
-export const createUserAction = async (formData: FormData) => {
+export const createUserAction = async (prevState: any, formData: FormData) => {
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+  console.log(prevState);
   const firstName = formData.get("firstName") as string;
   const lastName = formData.get("lastName") as string;
   const user = { firstName, lastName, id: Date.now().toString() };
-  await saveUser(user);
-  revalidatePath("/actions");
+
+  try {
+    // await saveUser(user);
+    // revalidatePath("/actions");
+    // return "Created user successfully...";
+    throw new Error("there was an error...");
+  } catch (error) {
+    console.log(error);
+    return "Failed to created user...";
+  }
 };
 
 // Delete user
