@@ -18,10 +18,10 @@ export const createUserAction = async (prevState: any, formData: FormData) => {
   const user = { firstName, lastName, id: Date.now().toString() };
 
   try {
-    // await saveUser(user);
-    // revalidatePath("/actions");
-    // return "Created user successfully...";
-    throw new Error("there was an error...");
+    // throw new Error("there was an error...");
+    await saveUser(user);
+    revalidatePath("/actions");
+    return "Created user successfully...";
   } catch (error) {
     console.log(error);
     return "Failed to created user...";
@@ -29,12 +29,13 @@ export const createUserAction = async (prevState: any, formData: FormData) => {
 };
 
 // Delete user
-export const deleteUserAction = async (formData: FormData) => {
-  const id = formData.get("id");
+export const deleteUserAction = async (id: string, formData: FormData) => {
+  const name = formData.get("name") as string;
+  console.log(name);
   const users = await fetchData();
-  console.log(users);
-  users.filter((user) => user.id !== id);
-  await updateUsers(users);
+  // console.log(users);
+  const newUsers = users.filter((user) => user.id !== id);
+  await updateUsers(newUsers);
   revalidatePath("/actions");
 };
 

@@ -16,8 +16,6 @@ function SubmitButton() {
 function Form() {
   const [message, formAction] = useFormState(createUserAction, null);
 
-  console.log(message);
-
   return (
     <form action={formAction} className={`${formStyle} mb-2`}>
       {message && <p>{message}</p>}
